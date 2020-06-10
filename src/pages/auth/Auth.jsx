@@ -1,14 +1,23 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
+import useFetch from '../../hooks/useFetch'
 
 const Auth = () => {
-
-    const [email, setEmail] = useState(undefined)
-    const [password, setPassword] = useState(undefined)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [{response, isLoading, error}, doFetch] = useFetch('/users/login')
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(email, password)
+        doFetch({
+            method: 'POST',
+            data: {
+                user: {
+                    email: 'jdcsd',
+                    password: 123
+                }
+            }
+        })
     }
 
     const handleEmailChange = (e) => {
@@ -50,7 +59,11 @@ const Auth = () => {
                                         value={password}
                                     />
                                 </fieldset>
-                                <button className="btn btn-lg btn-primary pull-xs-right" type='submit'>
+                                <button
+                                    className="btn btn-lg btn-primary pull-xs-right"
+                                    type='submit'
+                                    disabled={isLoading}
+                                >
                                     Sign-in
                                 </button>
                             </fieldset>

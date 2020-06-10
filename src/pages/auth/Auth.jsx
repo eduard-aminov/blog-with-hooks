@@ -1,7 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 
 const Auth = () => {
+
+    const [email, setEmail] = useState(undefined)
+    const [password, setPassword] = useState(undefined)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(email, password)
+    }
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value)
+    }
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value)
+    }
+
     return (
         <div className="auth-page">
             <div className="container page">
@@ -13,13 +30,15 @@ const Auth = () => {
                         <p className="text-xs-center">
                             <Link to='/register'>Need an account?</Link>
                         </p>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <fieldset>
                                 <fieldset className="form-group">
                                     <input
                                         type="email"
                                         className='form-control form-control-lg'
                                         placeholder='Email'
+                                        onChange={handleEmailChange}
+                                        value={email}
                                     />
                                 </fieldset>
                                 <fieldset className="form-group">
@@ -27,6 +46,8 @@ const Auth = () => {
                                         type="password"
                                         className='form-control form-control-lg'
                                         placeholder='Password'
+                                        onChange={handlePasswordChange}
+                                        value={password}
                                     />
                                 </fieldset>
                                 <button className="btn btn-lg btn-primary pull-xs-right" type='submit'>

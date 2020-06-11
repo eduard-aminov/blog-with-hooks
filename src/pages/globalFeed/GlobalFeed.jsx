@@ -1,6 +1,9 @@
 import React, {Fragment, useEffect} from 'react'
+import ErrorMessage from '../../components/ErrorMessage'
 import Feed from '../../components/Feed'
+import Loading from '../../components/Loading'
 import Paginator from '../../components/Paginator'
+import PopularTags from '../../components/PopularTags'
 import useFetch from '../../hooks/useFetch'
 import {getPaginator, limit} from '../../utils'
 import {stringify} from 'query-string'
@@ -30,8 +33,8 @@ const GlobalFeed = ({location, match}) => {
             <div className="container page">
                 <div className="row">
                     <div className="col-md-9">
-                        {isLoading && <div>Loading...</div>}
-                        {error && <div>Some error happened</div>}
+                        {isLoading && <Loading/>}
+                        {error && <ErrorMessage/>}
                         {!isLoading && response && (
                             <Fragment>
                                 <Feed articles={response.articles}/>
@@ -45,7 +48,7 @@ const GlobalFeed = ({location, match}) => {
                         )}
                     </div>
                     <div className="col-md-3">
-                        Popular Tags
+                        <PopularTags/>
                     </div>
                 </div>
             </div>

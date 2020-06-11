@@ -9,11 +9,13 @@ import useFetch from '../../hooks/useFetch'
 import {getPaginator, limit} from '../../utils'
 import {stringify} from 'query-string'
 
-const GlobalFeed = ({location, match}) => {
+const TagFeed = ({location, match}) => {
     const {currentPage, offset} = getPaginator(location.search)
+    const tag = match.params.slug
     const stringifiedParams = stringify({
         limit,
-        offset
+        offset,
+        tag
     })
     const url = match.url
     const apiUrl = `/articles?${stringifiedParams}`
@@ -21,7 +23,7 @@ const GlobalFeed = ({location, match}) => {
 
     useEffect(() => {
         doFetch()
-    },[doFetch, currentPage])
+    },[doFetch, currentPage, tag])
 
     return (
         <div className='home-page'>
@@ -34,7 +36,7 @@ const GlobalFeed = ({location, match}) => {
             <div className="container page">
                 <div className="row">
                     <div className="col-md-9">
-                        <FeedToggle/>
+                        <FeedToggle tag={tag}/>
                         {isLoading && <Loading/>}
                         {error && <ErrorMessage/>}
                         {!isLoading && response && (
@@ -58,4 +60,4 @@ const GlobalFeed = ({location, match}) => {
     )
 }
 
-export default GlobalFeed
+export default TagFeed

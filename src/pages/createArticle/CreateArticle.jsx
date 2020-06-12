@@ -15,6 +15,7 @@ const CreateArticle = () => {
     const [{response, error}, doFetch] = useFetch(apiUrl)
     const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState(false)
     const [currentUserState] = useContext(CurrentUserContext)
+
     const handleSubmit = (article) => {
         doFetch({
             method: 'post',

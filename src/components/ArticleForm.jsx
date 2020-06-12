@@ -6,14 +6,15 @@ const ArticleForm = ({onSubmit, errors, initialValues}) => {
     const [body, setBody] = useState('')
     const [description, setDescription] = useState('')
     const [tagList, setTagList] = useState('')
+
     const handleSubmit = (e) => {
+        e.preventDefault()
         const article = {
             title,
             body,
             description,
             tagList
         }
-        e.preventDefault()
         onSubmit(article)
     }
 
@@ -34,10 +35,13 @@ const ArticleForm = ({onSubmit, errors, initialValues}) => {
     }
 
     useEffect(() => {
+        if (!initialValues) {
+            return
+        }
         setTitle(initialValues.title)
         setDescription(initialValues.description)
         setBody(initialValues.body)
-        setTagList(initialValues.tagList)
+        setTagList(initialValues.tagList.join(' '))
     },[initialValues])
 
     return (

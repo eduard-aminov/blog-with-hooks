@@ -25,12 +25,18 @@ const reducer = (state, action) => {
                 ...state,
                 isLoggedIn: false,
             }
+        case 'LOGOUT':
+            return {
+            ...state,
+                isLoggedIn: false,
+                currentUser: null
+            }
         default:
             return state
     }
 }
 
-export const CurrentUserContext = createContext([{}, p => {}])
+export const CurrentUserContext = createContext([{}, action => {}])
 
 export const CurrentUserProvider = ({children}) => {
     const value = useReducer(reducer, initialState)

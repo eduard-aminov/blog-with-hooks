@@ -5,6 +5,7 @@ import Auth from './pages/auth/Auth'
 import CreateArticle from './pages/createArticle/CreateArticle'
 import EditArticle from './pages/editArticle/EditArticle'
 import GlobalFeed from './pages/globalFeed/GlobalFeed'
+import Settings from './pages/settings/Settings'
 import TagFeed from './pages/tagFeed/TagFeed'
 import YourFeed from './pages/yourFeed/YourFeed'
 
@@ -18,6 +19,7 @@ const Routes = () => {
             <Route path={'/tags/:slug'} component={TagFeed} />
             <Route path={'/login'} component={Auth} />
             <Route path={'/register'} component={Auth} />
+            <Route path={'/settings'} component={Settings} />
             <Route path={'/article/:slug'} component={Article} />
         </Switch>
     )

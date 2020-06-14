@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/blog-with-hooks/static/js/main.de679287.chunk.js",
+    "main.js.map": "/blog-with-hooks/static/js/main.de679287.chunk.js.map",
+    "runtime-main.js": "/blog-with-hooks/static/js/runtime-main.2a3cbaf8.js",
+    "runtime-main.js.map": "/blog-with-hooks/static/js/runtime-main.2a3cbaf8.js.map",
+    "static/js/2.acf166c2.chunk.js": "/blog-with-hooks/static/js/2.acf166c2.chunk.js",
+    "static/js/2.acf166c2.chunk.js.map": "/blog-with-hooks/static/js/2.acf166c2.chunk.js.map",
+    "index.html": "/blog-with-hooks/index.html",
+    "precache-manifest.eb68f6c57fe7d0f4984132337660b6c0.js": "/blog-with-hooks/precache-manifest.eb68f6c57fe7d0f4984132337660b6c0.js",
+    "service-worker.js": "/blog-with-hooks/service-worker.js",
+    "static/js/2.acf166c2.chunk.js.LICENSE.txt": "/blog-with-hooks/static/js/2.acf166c2.chunk.js.LICENSE.txt",
+    "static/media/preloader.svg": "/blog-with-hooks/static/media/preloader.4e9bd8b8.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2a3cbaf8.js",
+    "static/js/2.acf166c2.chunk.js",
+    "static/js/main.de679287.chunk.js"
+  ]
+}
